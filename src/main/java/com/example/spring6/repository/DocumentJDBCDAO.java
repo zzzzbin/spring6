@@ -1,4 +1,4 @@
-package com.example.spring6.service;
+package com.example.spring6.repository;
 
 import java.util.List;
 

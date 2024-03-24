@@ -4,11 +4,12 @@ import java.util.List;
 
 import com.example.spring6.model.Document;
 import com.example.spring6.model.DocumentType;
+import com.example.spring6.repository.DocumentDAO;
 
-public class SearchEngineService implements SearchEngine{
+public class DaoSearchEngineService implements SearchEngine{
     private DocumentDAO dao;
 
-    public SearchEngineService(DocumentDAO dao) {
+    public DaoSearchEngineService(DocumentDAO dao) {
         this.dao = dao;
     }
 

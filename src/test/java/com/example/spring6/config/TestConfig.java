@@ -2,14 +2,17 @@ package com.example.spring6.config;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import com.example.spring6.repository.DocumentRepository;
+import com.example.spring6.service.RepositorySearchEngineService;
 import com.example.spring6.service.SearchEngine;
-import com.example.spring6.service.StaticSearchEngine;
 
 @TestConfiguration
+@EnableJpaRepositories
 public class TestConfig {
     @Bean
-    SearchEngine searchEngine(){
-        return new StaticSearchEngine();
+    SearchEngine searchEngine(DocumentRepository repository){
+        return new RepositorySearchEngineService(repository);
     }
 }
