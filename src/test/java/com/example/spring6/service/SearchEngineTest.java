@@ -2,8 +2,6 @@ package com.example.spring6.service;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.spring6.model.DocumentType;
-
 import static com.example.spring6.model.DocumentType.PDF;
 import static org.junit.jupiter.api.Assertions.*;
 

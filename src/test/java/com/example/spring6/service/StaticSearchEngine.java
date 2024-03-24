@@ -12,10 +12,28 @@ import static com.example.spring6.model.DocumentType.PDF;
 import static com.example.spring6.model.DocumentType.URL;
 
 public class StaticSearchEngine implements SearchEngine {
-    private final List<Document> data = populate();
+    private List<Document> data;
 
-    private List<Document> populate() {
-        return List.of(new Document(
+    public StaticSearchEngine(boolean populate) {
+        if (populate) {
+            populateData();
+        }
+    }
+
+    public StaticSearchEngine(List<Document> documents) {
+        populateData(documents);
+    }
+
+    public StaticSearchEngine() {
+        this(true);
+    }
+
+    public void populateData(List<Document> documents) {
+        this.data = documents;
+    }
+
+    public void populateData() {
+        populateData( List.of(new Document(
                         "Book Template.pdf", PDF, "/Docs/Template.pdf"
                 ),
                 new Document(
@@ -26,16 +44,20 @@ public class StaticSearchEngine implements SearchEngine {
                 ),
                 new Document(
                         "Chapter 01.docx", DOCX, "/Docs/Chapter 01.docx"
-                ));
+                )));
     }
 
     @Override
     public List<Document> findByType(DocumentType documentType) {
-        return data.stream().filter(e->e.getType().equals(documentType)).collect(Collectors.toList());
+        return data.stream().filter(e -> e.getType().equals(documentType)).collect(Collectors.toList());
     }
 
     @Override
     public List<Document> listAll() {
         return data;
+    }
+
+    public void setData(List<Document> data) {
+        this.data = data;
     }
 }
