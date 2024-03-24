@@ -15,10 +15,10 @@ public class Spring6Application {
 		return new HelloService();
 	}
 	public static void main(String[] args) {
-//		SpringApplication.run(Spring6Application.class, args);
-		var content = new AnnotationConfigApplicationContext(Spring6Application.class);
-		var service = content.getBean(MessageService.class);
-		System.out.println("service = " + service.getMessage());
+		SpringApplication.run(Spring6Application.class, args);
+//		var content = new AnnotationConfigApplicationContext(Spring6Application.class);
+//		var service = content.getBean(MessageService.class);
+//		System.out.println("service = " + service.getMessage());
 	}
 
 }
