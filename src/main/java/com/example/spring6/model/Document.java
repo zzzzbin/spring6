@@ -1,22 +1,21 @@
 package com.example.spring6.model;
 
-import java.time.LocalDate;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Document {
-    private final String name;
-    private final DocumentType type;
-    private final String location;
-    private final LocalDate created;
-    private LocalDate modified;
+    private Integer id;
+    private String name;
+    private String location;
+    private DocumentType type;
 
     public Document(String name, DocumentType type, String location) {
         this.name = name;
         this.type = type;
         this.location = location;
-        created = LocalDate.now();
-        modified = LocalDate.now();
     }
 }
